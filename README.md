@@ -1,1 +1,3 @@
-# react-native-pagination
+# pagination react-native
+
+## This is a demo of pagination in react native

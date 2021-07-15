@@ -25,7 +25,7 @@ export default function App() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://api.github.com/search/repositories?q=javascipt&sort=stars&order=desc&per_page=3&page=${page}`,
+        `https://api.github.com/search/repositories?q=javascipt&sort=stars&order=desc&per_page=20&page=${page}`,
       );
       setRepos([...repos, ...response.data.items]);
       setPage(prevPage => prevPage + 1);
@@ -39,7 +39,7 @@ export default function App() {
   const renderItem = ({item}) => (
     <View style={styles.itemContainer}>
       <Image source={{uri: item.owner?.avatar_url}} style={styles.itemImage} />
-      <View style={styles.itemDesc}>
+      <View>
         <Text>Name: {item.name}</Text>
         <Text>Owner: {item.owner?.login}</Text>
       </View>
@@ -92,8 +92,5 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 4,
     marginRight: 10,
-  },
-  itemDesc: {
-    marginRight: 14,
   },
 });
